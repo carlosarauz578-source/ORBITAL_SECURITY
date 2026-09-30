@@ -209,15 +209,14 @@
             position: relative;
         }
 
-        .media-container img, 
-        .media-container iframe {
+        .media-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border: 0;
         }
 
-        /* Estilo para los reproductores interactivos seguros */
+        /* Estilo para los reproductores interactivos seguros de YouTube */
         .video-overlay-container {
             position: relative;
             width: 100%;
@@ -226,13 +225,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
         }
 
         .video-overlay-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.8);
+            filter: brightness(0.75);
             transition: filter 0.3s;
         }
 
@@ -242,7 +242,7 @@
 
         .play-button {
             position: absolute;
-            background: rgba(0, 240, 255, 0.85);
+            background: rgba(0, 240, 255, 0.9);
             color: #04060f;
             padding: 12px 24px;
             border-radius: 30px;
@@ -253,7 +253,6 @@
             gap: 8px;
             box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
             transition: transform 0.2s, background 0.2s;
-            text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -325,7 +324,10 @@
                     <img src="Image_klhs.jpg" alt="Estación de Defensa Espacial Avanzada">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/hGWxYygQnqo" title="ISS Live 4K Earth Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=hGWxYygQnqo" target="_blank" class="video-overlay-container">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop" alt="Reproducir ISS Live">
+                        <div class="play-button">▶ Reproducer Video</div>
+                    </a>
                 </div>
             </div>
 
@@ -342,7 +344,10 @@
                     <img src="Image_nsa3.jpg" alt="Satélite de Intercepción y Ciberseguridad">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/itg2FAfLG1s" title="Orbital Camera Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=itg2FAfLG1s" target="_blank" class="video-overlay-container">
+                        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=800&auto=format&fit=crop" alt="Reproducir Orbital Earth">
+                        <div class="play-button">▶ Reproducer Video</div>
+                    </a>
                 </div>
             </div>
 
@@ -353,7 +358,7 @@
 
         <div class="dashboard-grid">
 
-            <!-- Video 3: Kj5DjRYkzD8 (Adaptado con enlace directo seguro para evitar bloqueos) -->
+            <!-- Video 3: Kj5DjRYkzD8 -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Ingeniería Avanzada</span>
@@ -368,12 +373,12 @@
                 <div class="media-container">
                     <a href="https://www.youtube.com/watch?v=Kj5DjRYkzD8" target="_blank" class="video-overlay-container">
                         <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=800&auto=format&fit=crop" alt="Reproducir SpaceX Starship">
-                        <div class="play-button">▶ Ver Transmisión en Vivo</div>
+                        <div class="play-button">▶ Reproducer Video</div>
                     </a>
                 </div>
             </div>
 
-            <!-- Video 4: 0FBiyFpV__g (Adaptado con enlace directo seguro para evitar bloqueos) -->
+            <!-- Video 4: 0FBiyFpV__g -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Redes Globales</span>
@@ -387,8 +392,8 @@
                 </div>
                 <div class="media-container">
                     <a href="https://www.youtube.com/watch?v=0FBiyFpV__g" target="_blank" class="video-overlay-container">
-                        <img src="https://images.unsplash.com/photo-1517976487132-f75aacfc9a58?q=80&w=800&auto=format&fit=crop" alt="Reproducir Falcon 9 Launch">
-                        <div class="play-button">▶ Ver Transmisión en Vivo</div>
+                        <img src="https://images.unsplash.com/photo-1517976487132-f75aacfc9a58?q=80&w=800&auto=format&fit=crop" alt="Reproducir Falcon 9">
+                        <div class="play-button">▶ Reproducer Video</div>
                     </a>
                 </div>
             </div>
