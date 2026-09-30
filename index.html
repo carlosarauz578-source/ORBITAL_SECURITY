@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBITAL_SECURITY | Monitoreo Orbital y Ciberdefensa Espacial</title>
+    <style>
+        :root {
+            --bg-main: #070913;
+            --bg-card: #0f172a;
+            --accent-cyan: #00f0ff;
+            --accent-green: #00ff88;
+            --accent-red: #ff3366;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-card: rgba(0, 240, 255, 0.15);
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #090d19 0%, #020617 100%);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-cyan);
+            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.1);
+        }
+
+        header h1 {
+            color: var(--accent-cyan);
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            color: var(--accent-cyan);
+            font-size: 1.4rem;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+            padding-bottom: 0.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Estilo Dashboard: Cuadrícula de 2 columnas */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            border: 1px solid var(--border-card);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .card-header {
+            padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+        }
+
+        .card h2 {
+            color: var(--text-main);
+            font-size: 1.15rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .badge-live {
+            background-color: rgba(255, 51, 102, 0.15);
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.65rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-tech {
+            background-color: rgba(0, 255, 136, 0.1);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.65rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-body {
+            padding: 0 1.5rem 1.2rem 1.5rem;
+        }
+
+        .card-body p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0 0 1rem 0;
+        }
+
+        .media-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .media-container img, 
+        .media-container iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ORBITAL_SECURITY</h1>
+        <p>Monitoreo Terrestre en Órbita • Ingeniería Espacial SpaceX • Ciberdefensa Autónoma</p>
+    </header>
+
+    <div class="container">
+
+        <!-- SECCIÓN DE INTRODUCCIÓN / ANÁLISIS TECNOLÓGICO -->
+        <h2 class="section-title">🛡️ Convergencia Tecnológica: Cohetes Reutilizables y Ciberseguridad</h2>
+        <div class="dashboard-grid">
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-header">
+                    <span class="badge-tech">Infraestructura Futura</span>
+                    <h2>De la Propulsión Orbital al Blindaje de Datos en Redes Descentralizadas</h2>
+                </div>
+                <div class="media-container" style="height: 320px;">
+                    <img src="Image_oolqc (1).jpg" alt="Infraestructura Orbital y Ciberseguridad">
+                </div>
+                <div class="card-body" style="padding-top: 1rem;">
+                    <p>El desarrollo de cohetes reutilizables de alta precisión —liderados por innovaciones como las de SpaceX— requiere sistemas informáticos hiperconectados, telemetría en tiempo real de milisegundos y redes satelitales masivas (como Starlink). Esta misma infraestructura espacial exige arquitecturas de ciberseguridad resilientes y autónomas capaces de proteger contra ataques cibernéticos y brechas invisibles tanto en la Tierra como en el espacio exterior.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE TRANSMISIONES EN VIVO: CÁMARAS ORBITALES Y ESTACIÓN ESPACIAL -->
+        <h2 class="section-title">🌍 Centro de Control: Vistas en Vivo de la Tierra y la ISS</h2>
+        
+        <div class="dashboard-grid">
+
+            <!-- Video 1: ISS Earth Live View 4K -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge-live">● Transmisión Activa</span>
+                    <h2>ISS Live 4K: Earth from Space Orbital Feed</h2>
+                </div>
+                <div class="card-body">
+                    <p>Transmisión en directo en alta definición de la Tierra capturada desde los módulos de observación de la Estación Espacial Internacional.</p>
+                </div>
+                <div class="media-container">
+                    <iframe src="https://www.youtube.com/embed/s4Abg9FArgg" title="ISS Live 4K Earth Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Video 2: Earth Viewing Camera Stream -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge-live">● Transmisión Activa</span>
+                    <h2>Orbital Earth High-Definition Camera Feed</h2>
+                </div>
+                <div class="card-body">
+                    <p>Cámaras robóticas de órbita baja enfocadas en la superficie terrestre, océanos y atmósfera en tiempo real.</p>
+                </div>
+                <div class="media-container">
+                    <iframe src="https://www.youtube.com/embed/uwXgcTc8oY8" title="Orbital Camera Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DE INNOVACIÓN ESPACIAL: SPACEX Y AVANCES DE COHETES -->
+        <h2 class="section-title">🚀 Innovación Aeroespacial: SpaceX y el Futuro de la Propulsión</h2>
+
+        <div class="dashboard-grid">
+
+            <!-- Video 3: SpaceX Starship / Cohetes avanzados -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge-tech">Ingeniería Avanzada</span>
+                    <h2>SpaceX Starship & Super Heavy Orbital Integration</h2>
+                </div>
+                <div class="card-body">
+                    <p>Seguimiento de las pruebas de vuelo orbitales y los avances tecnológicos en cohetes reutilizables de gran escala.</p>
+                </div>
+                <div class="media-container">
+                    <iframe src="https://www.youtube.com/embed/Ew0Xu1RT8oc" title="SpaceX Starship Flight Test" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Video 4: SpaceX Falcon 9 / Despliegue de Redes Satelitales -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge-tech">Redes Globales</span>
+                    <h2>Falcon 9 Launch & Global Connectivity Grid</h2>
+                </div>
+                <div class="card-body">
+                    <p>Lanzamiento y despliegue de constelaciones satelitales que potencian la conectividad global segura y la ciberdefensa distribuida.</p>
+                </div>
+                <div class="media-container">
+                    <iframe src="https://www.youtube.com/embed/umEOUgmLiQo" title="SpaceX Falcon 9 Launch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ORBITAL_SECURITY. Todos los derechos reservados. | Sistema Autónomo de Ciberinteligencia y Monitoreo Espacial.</p>
+    </footer>
+
+</body>
+</html>
