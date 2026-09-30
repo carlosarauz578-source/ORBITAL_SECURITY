@@ -6,14 +6,14 @@
     <title>ORBITAL_SECURITY | Monitoreo Orbital y Ciberdefensa Espacial</title>
     <style>
         :root {
-            --bg-main: #070913;
-            --bg-card: #0f172a;
+            --bg-main: #03050c;
+            --bg-card: rgba(15, 23, 42, 0.85);
             --accent-cyan: #00f0ff;
             --accent-green: #00ff88;
             --accent-red: #ff3366;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-card: rgba(0, 240, 255, 0.15);
+            --border-card: rgba(0, 240, 255, 0.2);
         }
 
         body {
@@ -23,14 +23,123 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* --- FONDO ESPACIAL ANIMADO (ESTRELLAS Y GALAXIA) --- */
+        .space-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 30%, #0b1026 0%, #03050c 70%);
+        }
+
+        /* Galaxia borrosa de fondo */
+        .galaxy-nebula {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(138, 43, 226, 0.04) 40%, transparent 70%);
+            border-radius: 50%;
+            animation: rotateNebula 60s linear infinite;
+        }
+
+        @keyframes rotateNebula {
+            0% { transform: translateX(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        /* Capas de estrellas titilantes */
+        .stars, .stars2, .stars3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 40px 70px, #00f0ff, rgba(0,0,0,0)),
+                              radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 160px 120px, #00ff88, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.6;
+        }
+
+        .stars { animation: twinkle 4s ease-in-out infinite alternate; }
+        .stars2 { background-size: 300px 300px; opacity: 0.4; animation: twinkle 7s ease-in-out infinite alternate; }
+        .stars3 { background-size: 400px 400px; opacity: 0.3; animation: twinkle 10s ease-in-out infinite alternate; }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.02); }
+        }
+
+        /* --- OBJETOS ESPACIALES FLOTANTES (PLANETAS Y SATÉLITES) --- */
+        .floating-object {
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.45;
+        }
+
+        .planet-earth-mini {
+            top: 15%;
+            left: 5%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #00f0ff, #023e8a, #000);
+            border-radius: 50%;
+            box-shadow: inset -15px -15px 30px rgba(0,0,0,0.8), 0 0 25px rgba(0, 240, 255, 0.3);
+            animation: floatSlow 12s ease-in-out infinite;
+        }
+
+        .planet-mars {
+            top: 60%;
+            right: 4%;
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle at 30% 30%, #ff5722, #b71c1c, #000);
+            border-radius: 50%;
+            box-shadow: inset -10px -10px 25px rgba(0,0,0,0.9), 0 0 20px rgba(255, 87, 34, 0.2);
+            animation: floatReverse 15s ease-in-out infinite;
+        }
+
+        .satellite-orbit {
+            top: 35%;
+            right: 8%;
+            width: 70px;
+            height: 70px;
+            border: 1px dashed rgba(0, 240, 255, 0.3);
+            border-radius: 50%;
+            animation: rotateNebula 20s linear infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(25px) rotate(-5deg); }
+        }
+
+        /* --- ESTILOS GENERALES DE LA WEB --- */
         header {
-            background: linear-gradient(135deg, #090d19 0%, #020617 100%);
+            background: linear-gradient(135deg, rgba(9, 13, 25, 0.9) 0%, rgba(2, 6, 23, 0.9) 100%);
             padding: 2.5rem 1rem;
             text-align: center;
             border-bottom: 2px solid var(--accent-cyan);
-            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.1);
+            box-shadow: 0 5px 25px rgba(0, 240, 255, 0.15);
+            backdrop-filter: blur(5px);
         }
 
         header h1 {
@@ -39,6 +148,7 @@
             font-size: 2.2rem;
             letter-spacing: 3px;
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
         }
 
         header p {
@@ -51,6 +161,8 @@
             max-width: 1400px;
             margin: 2rem auto;
             padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -58,13 +170,13 @@
             font-size: 1.4rem;
             border-bottom: 1px solid rgba(0, 240, 255, 0.3);
             padding-bottom: 0.4rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
         }
 
-        /* Estilo Dashboard: Cuadrícula de 2 columnas */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
@@ -80,18 +192,21 @@
 
         .card {
             background-color: var(--bg-card);
+            backdrop-filter: blur(10px);
             border-radius: 10px;
             border: 1px solid var(--border-card);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             border-color: var(--accent-cyan);
+            box-shadow: 0 10px 35px rgba(0, 240, 255, 0.2);
+            transform: translateY(-3px);
         }
 
         .card-header {
@@ -167,10 +282,24 @@
             font-size: 0.8rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: 3rem;
+            background: rgba(3, 5, 12, 0.8);
+            backdrop-filter: blur(5px);
         }
     </style>
 </head>
 <body>
+
+    <!-- FONDO DE ESPACIO ANIMADO -->
+    <div class="space-background">
+        <div class="galaxy-nebula"></div>
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+        <!-- Objetos espaciales decorativos flotantes -->
+        <div class="floating-object planet-earth-mini"></div>
+        <div class="floating-object planet-mars"></div>
+        <div class="floating-object satellite-orbit"></div>
+    </div>
 
     <header>
         <h1>ORBITAL_SECURITY</h1>
@@ -179,7 +308,7 @@
 
     <div class="container">
 
-        <!-- SECCIÓN DE INTRODUCCIÓN / ANÁLISIS TECNOLÓGICO -->
+        <!-- SECCIÓN DE INTRODUCCIÓN -->
         <h2 class="section-title">🛡️ Convergencia Tecnológica: Cohetes Reutilizables y Ciberseguridad</h2>
         <div class="dashboard-grid">
             <div class="card" style="grid-column: 1 / -1;">
@@ -187,8 +316,10 @@
                     <span class="badge-tech">Infraestructura Futura</span>
                     <h2>De la Propulsión Orbital al Blindaje de Datos en Redes Descentralizadas</h2>
                 </div>
-                <!-- Imagen 1: Centro de Comando y Monitoreo Orbital -->
-                <div class="media-container" style="height: 320px;">
+                <div class="media-container" style="height: 280px;">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop" alt="Infraestructura Orbital">
+                </div>
+                <div class="media-container" style="height: 280px;">
                     <img src="Image_4ef8.jpg" alt="Centro de Comando y Monitoreo Orbital">
                 </div>
                 <div class="card-body" style="padding-top: 1rem;">
@@ -197,12 +328,10 @@
             </div>
         </div>
 
-        <!-- SECCIÓN DE TRANSMISIONES EN VIVO: CÁMARAS ORBITALES Y ESTACIÓN ESPACIAL -->
+        <!-- SECCIÓN DE TRANSMISIONES EN VIVO -->
         <h2 class="section-title">🌍 Centro de Control: Vistas en Vivo de la Tierra y la ISS</h2>
         
         <div class="dashboard-grid">
-
-            <!-- Video 1: ISS Earth Live View 4K -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-live">● Transmisión Activa</span>
@@ -211,16 +340,17 @@
                 <div class="card-body">
                     <p>Transmisión en directo en alta definición de la Tierra capturada desde los módulos de observación de la Estación Espacial Internacional.</p>
                 </div>
-                <!-- Imagen 2: Estación de Defensa Espacial Avanzada -->
+                <div class="media-container">
+                    <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=800&auto=format&fit=crop" alt="Tierra desde la ISS">
+                </div>
                 <div class="media-container">
                     <img src="Image_klhs.jpg" alt="Estación de Defensa Espacial Avanzada">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/s4Abg9FArgg" title="ISS Live 4K Earth Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/P9OWpJVjuro" title="ISS Live 4K Earth Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Video 2: Earth Viewing Camera Stream -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-live">● Transmisión Activa</span>
@@ -229,23 +359,22 @@
                 <div class="card-body">
                     <p>Cámaras robóticas de órbita baja enfocadas en la superficie terrestre, océanos y atmósfera en tiempo real.</p>
                 </div>
-                <!-- Imagen 3: Satélite de Intercepción y Ciberseguridad -->
+                <div class="media-container">
+                    <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=800&auto=format&fit=crop" alt="Cámara Órbita Terrestre">
+                </div>
                 <div class="media-container">
                     <img src="Image_nsa3.jpg" alt="Satélite de Intercepción y Ciberseguridad">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/uwXgcTc8oY8" title="Orbital Camera Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/21X5lGlDOfg" title="Orbital Camera Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
-
         </div>
 
-        <!-- SECCIÓN DE INNOVACIÓN ESPACIAL: SPACEX Y AVANCES DE COHETES -->
+        <!-- SECCIÓN DE INNOVACIÓN ESPACIAL -->
         <h2 class="section-title">🚀 Innovación Aeroespacial: SpaceX y el Futuro de la Propulsión</h2>
 
         <div class="dashboard-grid">
-
-            <!-- Video 3: SpaceX Starship -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Ingeniería Avanzada</span>
@@ -254,16 +383,17 @@
                 <div class="card-body">
                     <p>Seguimiento de las pruebas de vuelo orbitales y los avances tecnológicos en cohetes reutilizables de gran escala.</p>
                 </div>
-                <!-- Imagen 4: Interfaz de Red de Seguridad en Órbita -->
+                <div class="media-container">
+                    <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=800&auto=format&fit=crop" alt="SpaceX Starship">
+                </div>
                 <div class="media-container">
                     <img src="Image_pujv.jpg" alt="Interfaz de Red de Seguridad en Órbita">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/Ew0Xu1RT8oc" title="SpaceX Starship Flight Test" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dbDtDTJZjqg" title="SpaceX Starship Flight Test" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Video 4: SpaceX Falcon 9 -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Redes Globales</span>
@@ -276,10 +406,9 @@
                     <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?q=80&w=800&auto=format&fit=crop" alt="SpaceX Falcon 9 Launch">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/umEOUgmLiQo" title="SpaceX Falcon 9 Launch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/Z4TXbQwTWdk" title="SpaceX Falcon 9 Launch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
-
         </div>
 
     </div>
