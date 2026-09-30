@@ -6,14 +6,14 @@
     <title>ORBITAL_SECURITY | Monitoreo Orbital y Ciberdefensa Espacial</title>
     <style>
         :root {
-            --bg-main: #070913;
-            --bg-card: rgba(15, 23, 42, 0.85); /* Ligeramente translúcido para ver el fondo */
+            --bg-main: #05070c;
+            --bg-card: rgba(15, 23, 42, 0.85);
             --accent-cyan: #00f0ff;
             --accent-green: #00ff88;
             --accent-red: #ff3366;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-card: rgba(0, 240, 255, 0.15);
+            --border-card: rgba(0, 240, 255, 0.2);
         }
 
         body {
@@ -22,12 +22,12 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
             position: relative;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* --- FONDO ESPACIAL ANIMADO (ESTRELLAS Y NEBULOSAS) --- */
+        /* --- FONDO ESPACIAL ANIMADO REAL --- */
         .space-bg {
             position: fixed;
             top: 0;
@@ -35,12 +35,12 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            background: radial-gradient(ellipse at bottom, #0f172a 0%, #05070c 100%);
+            background: radial-gradient(ellipse at center, #0b1120 0%, #030408 100%);
             overflow: hidden;
+            pointer-events: none;
         }
 
-        /* Capa de Estrellas Estáticas / Parpadeantes */
-        .stars, .stars2, .stars3 {
+        .stars {
             position: absolute;
             top: 0;
             left: 0;
@@ -48,111 +48,93 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            display: block;
-        }
-
-        .stars {
-            background: transparent url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
-            z-index: -3;
-            opacity: 0.6;
-            animation: moveSpace 200s linear infinite;
-        }
-
-        .stars2 {
             background: transparent url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
             z-index: -2;
-            opacity: 0.3;
-            animation: moveSpace 100s linear infinite;
-        }
-
-        /* Destellos y Estrellas Brillantes */
-        @keyframes twinkle {
-            0% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
-            100% { opacity: 0.2; transform: scale(0.8); }
+            opacity: 0.7;
+            animation: moveSpace 150s linear infinite;
         }
 
         .nebula-glow {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(138, 43, 225, 0.03) 50%, transparent 70%);
-            top: -10%;
-            right: -10%;
-            z-index: -2;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(138, 43, 225, 0.04) 50%, transparent 70%);
+            top: 10%;
+            right: 5%;
+            z-index: -1;
             border-radius: 50%;
-            animation: pulseNebula 10s ease-in-out infinite alternate;
+            animation: pulseNebula 8s ease-in-out infinite alternate;
         }
 
         .nebula-glow-2 {
             position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, rgba(0, 100, 255, 0.03) 50%, transparent 70%);
-            bottom: -20%;
-            left: -15%;
-            z-index: -2;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, rgba(0, 100, 255, 0.04) 50%, transparent 70%);
+            bottom: 10%;
+            left: 5%;
+            z-index: -1;
             border-radius: 50%;
-            animation: pulseNebula 15s ease-in-out infinite alternate;
+            animation: pulseNebula 12s ease-in-out infinite alternate;
         }
 
         @keyframes pulseNebula {
-            0% { transform: scale(1); opacity: 0.6; }
-            100% { transform: scale(1.15); opacity: 1; }
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.9; }
         }
 
         @keyframes moveSpace {
             from { background-position: 0 0; }
             to { background-position: -10000px 10000px; }
         }
-        /* -------------------------------------------------- */
+        /* ----------------------------------- */
 
         header {
-            background: linear-gradient(135deg, rgba(9, 13, 25, 0.9) 0%, rgba(2, 6, 23, 0.9) 100%);
+            background: rgba(9, 13, 25, 0.75);
             backdrop-filter: blur(10px);
-            padding: 2.5rem 1rem;
+            padding: 1.8rem 1rem;
             text-align: center;
             border-bottom: 2px solid var(--accent-cyan);
-            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.15);
         }
 
         header h1 {
             color: var(--accent-cyan);
             margin: 0;
-            font-size: 2.2rem;
-            letter-spacing: 3px;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1rem;
-            margin-top: 0.4rem;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
         }
 
         .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
         }
 
         .section-title {
             color: var(--accent-cyan);
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             border-bottom: 1px solid rgba(0, 240, 255, 0.3);
-            padding-bottom: 0.4rem;
-            margin-top: 2rem;
-            margin-bottom: 1.5rem;
+            padding-bottom: 0.3rem;
+            margin-top: 1.8rem;
+            margin-bottom: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Estilo Dashboard: Cuadrícula de 2 columnas */
+        /* Cuadrícula optimizada y compacta para ver al 100% de zoom */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         @media (max-width: 768px) {
@@ -164,72 +146,72 @@
         .card {
             background-color: var(--bg-card);
             backdrop-filter: blur(12px);
-            border-radius: 10px;
+            border-radius: 8px;
             border: 1px solid var(--border-card);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            transition: border-color 0.3s ease, transform 0.2s ease;
         }
 
         .card:hover {
             border-color: var(--accent-cyan);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         .card-header {
-            padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+            padding: 1rem 1.2rem 0.4rem 1.2rem;
         }
 
         .card h2 {
             color: var(--text-main);
-            font-size: 1.15rem;
-            margin: 0 0 0.5rem 0;
+            font-size: 1.05rem;
+            margin: 0 0 0.3rem 0;
         }
 
         .badge-live {
             background-color: rgba(255, 51, 102, 0.15);
             color: var(--accent-red);
             border: 1px solid var(--accent-red);
-            padding: 0.2rem 0.6rem;
-            font-size: 0.65rem;
+            padding: 0.15rem 0.5rem;
+            font-size: 0.6rem;
             border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .badge-tech {
             background-color: rgba(0, 255, 136, 0.1);
             color: var(--accent-green);
             border: 1px solid var(--accent-green);
-            padding: 0.2rem 0.6rem;
-            font-size: 0.65rem;
+            padding: 0.15rem 0.5rem;
+            font-size: 0.6rem;
             border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .card-body {
-            padding: 0 1.5rem 1.2rem 1.5rem;
+            padding: 0 1.2rem 1rem 1.2rem;
         }
 
         .card-body p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin: 0 0 1rem 0;
+            margin: 0 0 0.8rem 0;
         }
 
         .media-container {
             width: 100%;
-            height: 250px;
+            height: 210px;
             overflow: hidden;
             background: #000;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -247,11 +229,11 @@
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             background: rgba(2, 6, 23, 0.8);
             backdrop-filter: blur(10px);
         }
@@ -262,7 +244,6 @@
     <!-- Fondo Espacial Animado -->
     <div class="space-bg">
         <div class="stars"></div>
-        <div class="stars2"></div>
         <div class="nebula-glow"></div>
         <div class="nebula-glow-2"></div>
     </div>
@@ -282,11 +263,11 @@
                     <span class="badge-tech">Infraestructura Futura</span>
                     <h2>De la Propulsión Orbital al Blindaje de Datos en Redes Descentralizadas</h2>
                 </div>
-                <!-- Imagen 1: Centro de Comando y Monitoreo Orbital -->
-                <div class="media-container" style="height: 320px;">
+                <!-- Imagen 1 -->
+                <div class="media-container" style="height: 260px;">
                     <img src="Image_4ef8.jpg" alt="Centro de Comando y Monitoreo Orbital">
                 </div>
-                <div class="card-body" style="padding-top: 1rem;">
+                <div class="card-body" style="padding-top: 0.8rem;">
                     <p>El desarrollo de cohetes reutilizables de alta precisión —liderados por innovaciones como las de SpaceX— requiere sistemas informáticos hiperconectados, telemetría en tiempo real de milisegundos y redes satelitales masivas (como Starlink). Esta misma infraestructura espacial exige arquitecturas de ciberseguridad resilientes y autónomas capaces de proteger contra ataques cibernéticos y brechas invisibles tanto en la Tierra como en el espacio exterior.</p>
                 </div>
             </div>
@@ -297,7 +278,7 @@
         
         <div class="dashboard-grid">
 
-            <!-- Video 1: ISS Earth Live View 4K -->
+            <!-- Video 1 -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-live">● Transmisión Activa</span>
@@ -306,16 +287,17 @@
                 <div class="card-body">
                     <p>Transmisión en directo en alta definición de la Tierra capturada desde los módulos de observación de la Estación Espacial Internacional.</p>
                 </div>
-                <!-- Imagen 2: Estación de Defensa Espacial Avanzada -->
+                <!-- Imagen 2 -->
                 <div class="media-container">
                     <img src="Image_klhs.jpg" alt="Estación de Defensa Espacial Avanzada">
                 </div>
+                <!-- Video corregido y público -->
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/s4Abg9FArgg" title="ISS Live 4K Earth Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/-lKX2GPIVRs" title="ISS Live Earth Feed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Video 2: Earth Viewing Camera Stream -->
+            <!-- Video 2 -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-live">● Transmisión Activa</span>
@@ -324,7 +306,7 @@
                 <div class="card-body">
                     <p>Cámaras robóticas de órbita baja enfocadas en la superficie terrestre, océanos y atmósfera en tiempo real.</p>
                 </div>
-                <!-- Imagen 3: Satélite de Intercepción y Ciberseguridad -->
+                <!-- Imagen 3 -->
                 <div class="media-container">
                     <img src="Image_nsa3.jpg" alt="Satélite de Intercepción y Ciberseguridad">
                 </div>
@@ -340,7 +322,7 @@
 
         <div class="dashboard-grid">
 
-            <!-- Video 3: SpaceX Starship -->
+            <!-- Video 3 -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Ingeniería Avanzada</span>
@@ -349,7 +331,7 @@
                 <div class="card-body">
                     <p>Seguimiento de las pruebas de vuelo orbitales y los avances tecnológicos en cohetes reutilizables de gran escala.</p>
                 </div>
-                <!-- Imagen 4: Interfaz de Red de Seguridad en Órbita -->
+                <!-- Imagen 4 -->
                 <div class="media-container">
                     <img src="Image_pujv.jpg" alt="Interfaz de Red de Seguridad en Órbita">
                 </div>
@@ -358,7 +340,7 @@
                 </div>
             </div>
 
-            <!-- Video 4: SpaceX Falcon 9 -->
+            <!-- Video 4 -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Redes Globales</span>
