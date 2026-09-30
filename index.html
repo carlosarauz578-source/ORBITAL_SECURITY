@@ -217,6 +217,53 @@
             border: 0;
         }
 
+        /* Estilo para los reproductores interactivos seguros */
+        .video-overlay-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-overlay-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: filter 0.3s;
+        }
+
+        .video-overlay-container:hover img {
+            filter: brightness(1);
+        }
+
+        .play-button {
+            position: absolute;
+            background: rgba(0, 240, 255, 0.85);
+            color: #04060f;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            transition: transform 0.2s, background 0.2s;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .play-button:hover {
+            transform: scale(1.08);
+            background: #00ff88;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -265,7 +312,7 @@
         
         <div class="dashboard-grid">
 
-            <!-- Video 1 -->
+            <!-- Video 1: hGWxYygQnqo -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-live">● Transmisión Activa</span>
@@ -282,7 +329,7 @@
                 </div>
             </div>
 
-            <!-- Video 2 -->
+            <!-- Video 2: itg2FAfLG1s -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-live">● Transmisión Activa</span>
@@ -306,7 +353,7 @@
 
         <div class="dashboard-grid">
 
-            <!-- Video 3 -->
+            <!-- Video 3: Kj5DjRYkzD8 (Adaptado con enlace directo seguro para evitar bloqueos) -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Ingeniería Avanzada</span>
@@ -319,11 +366,14 @@
                     <img src="Image_pujv.jpg" alt="Interfaz de Red de Seguridad en Órbita">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/Kj5DjRYkzD8" title="SpaceX Starship Flight Test" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=Kj5DjRYkzD8" target="_blank" class="video-overlay-container">
+                        <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=800&auto=format&fit=crop" alt="Reproducir SpaceX Starship">
+                        <div class="play-button">▶ Ver Transmisión en Vivo</div>
+                    </a>
                 </div>
             </div>
 
-            <!-- Video 4 (Reemplazado por un video compatible que sí permite inserción web) -->
+            <!-- Video 4: 0FBiyFpV__g (Adaptado con enlace directo seguro para evitar bloqueos) -->
             <div class="card">
                 <div class="card-header">
                     <span class="badge-tech">Redes Globales</span>
@@ -336,7 +386,10 @@
                     <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?q=80&w=800&auto=format&fit=crop" alt="SpaceX Falcon 9 Launch">
                 </div>
                 <div class="media-container">
-                    <iframe src="https://www.youtube.com/embed/21X5lGlDOfg" title="SpaceX Falcon 9 Launch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=0FBiyFpV__g" target="_blank" class="video-overlay-container">
+                        <img src="https://images.unsplash.com/photo-1517976487132-f75aacfc9a58?q=80&w=800&auto=format&fit=crop" alt="Reproducir Falcon 9 Launch">
+                        <div class="play-button">▶ Ver Transmisión en Vivo</div>
+                    </a>
                 </div>
             </div>
 
